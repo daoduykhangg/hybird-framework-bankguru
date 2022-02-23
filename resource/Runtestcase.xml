@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite parallel="false" name="Bankguru" thread-count="3">
+    <test name="Chrome">
+        <classes>
+            <parameter name="Browser" value="Chrome"/>
+            <class name="com.bankguru.user.User_01"/>
+        </classes>
+    </test>
+</suite>
