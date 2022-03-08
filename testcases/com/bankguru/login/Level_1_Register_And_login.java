@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-public class Login_01_Register_And_login {
+public class Level_1_Register_And_login {
     WebDriver driver;
     String projectPath = System.getProperty("user.dir");
     String currentURL, username, password;
