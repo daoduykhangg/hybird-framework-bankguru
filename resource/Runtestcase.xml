@@ -3,7 +3,7 @@
     <test name="Chrome">
         <classes>
             <parameter name="Browser" value="Chrome"/>
-            <class name="com.bankguru.login.Login_01_Register_And_login_Level_2"/>
+            <class name="com.bankguru.login.Level_3_Register_And_Login_Page_Object"/>
         </classes>
     </test>
 </suite>

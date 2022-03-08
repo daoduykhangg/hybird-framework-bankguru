@@ -3,6 +3,7 @@ package com.bankguru.login;
 import commons.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -12,15 +13,17 @@ import org.testng.annotations.Test;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-public class Login_01_Register_And_login_Level_2 extends BasePage {
+public class Level_2_Register_And_login extends BasePage {
     WebDriver driver;
     String projectPath = System.getProperty("user.dir");
     String currentURL, username, password;
 
     @BeforeClass
     public void beforeClass() {
-        System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
-        driver = new FirefoxDriver();
+//        System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
+//        driver = new FirefoxDriver();
+        System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
+        driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         openPageUrl(driver, "https://demo.guru99.com/v4");
