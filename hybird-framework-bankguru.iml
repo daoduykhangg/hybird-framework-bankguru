@@ -11,5 +11,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="libraries" level="project" />
+    <orderEntry type="library" exported="" name="libWebDriverManager" level="project" />
   </component>
 </module>

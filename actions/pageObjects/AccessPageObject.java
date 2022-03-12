@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import pageUIs.AccessPageUI;
 
 public class AccessPageObject extends BasePage {
-    WebDriver driver;
+    private WebDriver driver;
 
     public AccessPageObject(WebDriver driver) {
         this.driver = driver;
@@ -46,8 +46,14 @@ public class AccessPageObject extends BasePage {
         sendkeyToElement(driver, AccessPageUI.PASSWORD_TEXTBOX, password);
     }
 
-    public void clickToLoginButton() {
+    public ManageHomePageObject clickToLoginButton() {
         waitForElementClickable(driver, AccessPageUI.LOGIN_BUTTON);
         clickToElement(driver, AccessPageUI.LOGIN_BUTTON);
+        return PageGeneratorManager.getManageHomePage(driver);
+    }
+
+    public String getTextStepToGenerateAccess() {
+        waitForElementVisible(driver, AccessPageUI.STEP_GENERATE_TO_ACCESS_TEXT);
+        return getElementText(driver, AccessPageUI.STEP_GENERATE_TO_ACCESS_TEXT);
     }
 }
