@@ -5,22 +5,22 @@
     <test name="Chrome">
         <classes>
             <parameter name="Browser" value="Chrome"/>
-            <class name="com.bankguru.login.Level_4_Register_And_Login_Multiple_Browsers"/>
+            <class name="com.bankguru.login.Level_6_Switch_Page"/>
         </classes>
     </test>
 
-    <test name="Firefox">
-        <classes>
-            <parameter name="Browser" value="Firefox"/>
-            <class name="com.bankguru.login.Level_4_Register_And_Login_Multiple_Browsers"/>
-        </classes>
-    </test>
+<!--    <test name="Firefox">-->
+<!--        <classes>-->
+<!--            <parameter name="Browser" value="Firefox"/>-->
+<!--            <class name="com.bankguru.login.Level_4_Register_And_Login_Multiple_Browsers"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 
-    <test name="Egde">
-        <classes>
-            <parameter name="Browser" value="Edge_Chromium"/>
-            <class name="com.bankguru.login.Level_4_Register_And_Login_Multiple_Browsers"/>
-        </classes>
-    </test>
+<!--    <test name="Egde">-->
+<!--        <classes>-->
+<!--            <parameter name="Browser" value="Edge_Chromium"/>-->
+<!--            <class name="com.bankguru.login.Level_4_Register_And_Login_Multiple_Browsers"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 
 </suite>
