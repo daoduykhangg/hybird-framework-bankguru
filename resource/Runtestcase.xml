@@ -5,7 +5,7 @@
     <test name="Chrome">
         <classes>
             <parameter name="Browser" value="Chrome"/>
-            <class name="com.bankguru.login.Level_6_Switch_Page"/>
+            <class name="com.bankguru.login.Level_7_Dynamic_Locator"/>
         </classes>
     </test>
 
