@@ -5,7 +5,8 @@
     <test name="Chrome">
         <classes>
             <parameter name="Browser" value="Chrome"/>
-            <class name="com.bankguru.login.Level_7_Dynamic_Locator"/>
+            <class name="com.NopCommerce.Level_03_Page_Object_01_Register"/>
+            <class name="com.NopCommerce.Level_03_Page_Object_02_Login"/>
         </classes>
     </test>
 
