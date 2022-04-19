@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite parallel="false" name="Bankguru" thread-count="3">
+
+    <parameter name="Url" value="https://demo.guru99.com/v4"/>
     <test name="Chrome">
         <classes>
             <parameter name="Browser" value="Chrome"/>
@@ -7,4 +9,19 @@
             <class name="com.NopCommerce.Level_03_Page_Object_02_Login"/>
         </classes>
     </test>
+
+<!--    <test name="Firefox">-->
+<!--        <classes>-->
+<!--            <parameter name="Browser" value="Firefox"/>-->
+<!--            <class name="com.bankguru.login.Level_4_Register_And_Login_Multiple_Browsers"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+<!--    <test name="Egde">-->
+<!--        <classes>-->
+<!--            <parameter name="Browser" value="Edge_Chromium"/>-->
+<!--            <class name="com.bankguru.login.Level_4_Register_And_Login_Multiple_Browsers"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+
 </suite>
