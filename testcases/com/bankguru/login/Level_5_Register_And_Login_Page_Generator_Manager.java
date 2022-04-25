@@ -7,9 +7,9 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pageObjects.AccessPageObject;
-import pageObjects.ManageHomePageObject;
-import pageObjects.PageGeneratorManager;
+import pageObjects.bankguru.AccessPageObject;
+import pageObjects.bankguru.ManageHomePageObject;
+import pageObjects.bankguru.PageGeneratorManager;
 
 public class Level_5_Register_And_Login_Page_Generator_Manager extends BaseTest {
     WebDriver driver;

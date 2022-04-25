@@ -1,8 +1,8 @@
-package pageObjects;
+package pageObjects.bankguru;
 
 import commons.BasePage;
 import org.openqa.selenium.WebDriver;
-import pageUIs.AccessPageUI;
+import pageUIs.bankguru.AccessPageUI;
 
 public class AccessPageObject extends BasePage {
     private WebDriver driver;

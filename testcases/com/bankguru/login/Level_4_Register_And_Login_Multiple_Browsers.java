@@ -7,8 +7,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pageObjects.AccessPageObject;
-import pageObjects.ManageHomePageObject;
+import pageObjects.bankguru.AccessPageObject;
+import pageObjects.bankguru.ManageHomePageObject;
 
 import java.util.Random;
 

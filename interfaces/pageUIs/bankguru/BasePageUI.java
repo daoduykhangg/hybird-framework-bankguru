@@ -1,4 +1,4 @@
-package pageUIs;
+package pageUIs.bankguru;
 
 public class BasePageUI {
     public static final String MANAGER_HOMEPAGE_LINK = "//ul[@class='menusubnav']//a[text()='Manager']";

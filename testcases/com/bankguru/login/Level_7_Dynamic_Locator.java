@@ -7,8 +7,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pageObjects.*;
-import pageUIs.BasePageUI;
+import pageObjects.bankguru.*;
+import pageUIs.bankguru.BasePageUI;
 
 public class Level_7_Dynamic_Locator extends BaseTest {
     private WebDriver driver;

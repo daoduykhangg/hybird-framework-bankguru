@@ -1,8 +1,8 @@
-package pageObjects;
+package pageObjects.bankguru;
 
 import commons.BasePage;
 import org.openqa.selenium.WebDriver;
-import pageUIs.ManageHomePageUI;
+import pageUIs.bankguru.ManageHomePageUI;
 
 public class ManageHomePageObject extends BasePage {
     private WebDriver driver;

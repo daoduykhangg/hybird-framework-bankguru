@@ -7,8 +7,8 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pageObjects.*;
-import pageUIs.BasePageUI;
+import pageObjects.bankguru.*;
+import pageUIs.bankguru.BasePageUI;
 
 import java.util.List;
 import java.util.Set;
@@ -38,7 +38,7 @@ public class BasePage {
         driver.navigate().forward();
     }
 
-    protected void refreshPage(WebDriver driver) {
+    public void refreshPage(WebDriver driver) {
         driver.navigate().refresh();
     }
 
@@ -122,6 +122,10 @@ public class BasePage {
         return getElements(driver, locator).size();
     }
 
+    protected int getElementSize(WebDriver driver, String locator, String... params) {
+        return getElements(driver, getDynamicLocator(locator, params)).size();
+    }
+
     protected void clickToElement(WebDriver driver, String locator) {
         getElement(driver, locator).click();
     }
@@ -192,7 +196,7 @@ public class BasePage {
         return Color.fromString(rgbaValue).asHex();
     }
 
-    protected void sleepInSecond(long second) {
+    public void sleepInSecond(long second) {
         try {
             Thread.sleep(second * 1000);
         } catch (InterruptedException e) {
@@ -271,6 +275,11 @@ public class BasePage {
     protected void pressKeyBoardToElement(WebDriver driver, String locator, Keys key) {
         action = new Actions(driver);
         action.sendKeys(getElement(driver, locator), key).perform();
+    }
+
+    protected void pressKeyBoardToElement(WebDriver driver, String locator, Keys key, String... params) {
+        action = new Actions(driver);
+        action.sendKeys(getElement(driver, getDynamicLocator(locator, params)), key).perform();
     }
 
     protected Object executeForBrowser(WebDriver driver, String javaScript) {
@@ -393,7 +402,7 @@ public class BasePage {
         explicitWait.until(ExpectedConditions.invisibilityOfElementLocated(getByXpath(locator)));
     }
 
-    protected void waitForElementClickable(WebDriver driver, String locator, String params) {
+    protected void waitForElementClickable(WebDriver driver, String locator, String... params) {
         explicitWait = new WebDriverWait(driver, timeout);
         explicitWait.until(ExpectedConditions.elementToBeClickable(getByXpath(getDynamicLocator(locator, params))));
     }

@@ -1,4 +1,4 @@
-package pageObjects;
+package pageObjects.bankguru;
 
 import org.openqa.selenium.WebDriver;
 

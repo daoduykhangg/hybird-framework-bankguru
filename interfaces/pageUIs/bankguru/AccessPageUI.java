@@ -1,4 +1,4 @@
-package pageUIs;
+package pageUIs.bankguru;
 
 public class AccessPageUI {
     public static final String HERE_LINK = "//a[text()='here']";
