@@ -36,7 +36,7 @@ public class Level_03_Page_Object_01_Register {
     public void Register_01_Empty_Data() {
         System.out.println("Register 01 - Step 01: Click to 'Register' Link");
         homePage = new HomePageObject(driver);
-        homePage.clickToRegisterLink();
+//        homePage.clickToRegisterLink();
 
         System.out.println("Register 01 - Step 02: Click to 'Register' Button");
         registerPage = new RegisterPageObject(driver);
@@ -61,7 +61,7 @@ public class Level_03_Page_Object_01_Register {
     @Test
     public void Register_02_Invalid_Email() {
         System.out.println("Register 02 - Step 01: Click to 'Register' Link");
-        homePage.clickToRegisterLink();
+//        homePage.clickToRegisterLink();
         registerPage = new RegisterPageObject(driver);
 
         System.out.println("Register 02 - Step 02: Enter to 'Firstname' textbox with value '" + firstName + "'");
@@ -89,7 +89,7 @@ public class Level_03_Page_Object_01_Register {
     @Test
     public void Register_03_Register_Successfully() {
         System.out.println("Register 03 - Step 01: Click to 'Register' Link");
-        homePage.clickToRegisterLink();
+//        homePage.clickToRegisterLink();
         registerPage = new RegisterPageObject(driver);
 
         System.out.println("Register 03 - Step 02: Enter to 'Firstname' textbox with value '" + firstName + "'");
@@ -114,14 +114,14 @@ public class Level_03_Page_Object_01_Register {
         Assert.assertEquals(registerPage.getSuccessMessage(), "Your registration completed");
 
         System.out.println("Register 03 - Step 09: Click to Logout Link");
-        registerPage.clickToLogoutLink();
+//        registerPage.clickToLogoutLink();
         homePage = new HomePageObject(driver);
     }
 
     @Test
     public void Register_04_Existing_Email() {
         System.out.println("Register 04 - Step 01: Click to 'Register' Link");
-        homePage.clickToRegisterLink();
+//        homePage.clickToRegisterLink();
         registerPage = new RegisterPageObject(driver);
 
         System.out.println("Register 04 - Step 02: Enter to 'Firstname' textbox with value '" + firstName + "'");
@@ -149,7 +149,7 @@ public class Level_03_Page_Object_01_Register {
     @Test
     public void Register_05_Password_Less_Than_6_Characters() {
         System.out.println("Register 05 - Step 01: Click to 'Register' Link");
-        homePage.clickToRegisterLink();
+//        homePage.clickToRegisterLink();
         registerPage = new RegisterPageObject(driver);
 
         System.out.println("Register 05 - Step 02: Enter to 'Firstname' textbox with value '" + firstName + "'");
@@ -177,7 +177,7 @@ public class Level_03_Page_Object_01_Register {
     @Test
     public void Register_06_Password_And_ConfirmPassword_Do_Not_Match() {
         System.out.println("Register 06 - Step 01: Click to 'Register' Link");
-        homePage.clickToRegisterLink();
+//        homePage.clickToRegisterLink();
         registerPage = new RegisterPageObject(driver);
 
         System.out.println("Register 06 - Step 02: Enter to 'Firstname' textbox with value '" + firstName + "'");

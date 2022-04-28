@@ -1,28 +1,27 @@
 package com.NopCommerce;
 
+import commons.BasePage;
+import commons.BaseTest;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObject.NopCommerce.HomePageObject;
-import pageObject.NopCommerce.RegisterPageObject;
 import pageObject.NopCommerce.LoginPageObject;
+import pageObject.NopCommerce.RegisterPageObject;
 
+import java.util.Base64;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-public class Level_03_Page_Object_02_Login {
-
+public class Level_04_Multiple_Browser extends BaseTest {
+    @Parameters({"Browser", "Url"})
     @BeforeClass
-    public void beforeClass() {
-        System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
-        driver.get("https://demo.nopcommerce.com/");
-
+    public void beforeClass(String browserName, String url) {
+        driver = getBrowserDriver(browserName, url);
         firstName = "automation";
         lastName = "fc";
         email = getEmailRandom();
@@ -70,7 +69,7 @@ public class Level_03_Page_Object_02_Login {
 //        homePage.clickToLoginLink();
 
         System.out.println("Login 01 - Step 02: Click to 'Login' Button");
-        loginPage = new LoginPageObject(driver);
+//        loginPage = new LoginPageObject(driver);
 //        loginPage.clickToLoginButton();
 
         System.out.println("Login 01 - Step 02: Verrify Error message at 'Email' Textbox");

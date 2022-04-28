@@ -7,6 +7,10 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pageObject.NopCommerce.AddressesPageObject;
+import pageObject.NopCommerce.ChangePasswordPageObject;
+import pageObject.NopCommerce.CustomerInforPageObject;
+import pageObject.NopCommerce.MyProductReviewsPageObject;
 import pageObjects.bankguru.*;
 import pageUIs.bankguru.BasePageUI;
 
@@ -411,6 +415,31 @@ public class BasePage {
         explicitWait = new WebDriverWait(driver, timeout);
         explicitWait.until(ExpectedConditions.invisibilityOfElementLocated(getByXpath(getDynamicLocator(locator, params))));
     }
+
+    /* Common methods Nopcommerce */
+    public CustomerInforPageObject openCustomerInforPage(WebDriver driver) {
+        waitForElementClickable(driver, pageUIs.NopCommerce.BasePageUI.CUSTOMER_INFOR_LINK);
+        clickToElement(driver, pageUIs.NopCommerce.BasePageUI.CUSTOMER_INFOR_LINK);
+        return pageObject.NopCommerce.PageGeneratorManager.getCustomerInforPage(driver);
+    }
+
+    public AddressesPageObject openAddressesPage(WebDriver driver) {
+        waitForElementClickable(driver, pageUIs.NopCommerce.BasePageUI.ADDRESSES_LINK);
+        clickToElement(driver, pageUIs.NopCommerce.BasePageUI.ADDRESSES_LINK);
+        return pageObject.NopCommerce.PageGeneratorManager.getAddressesPage(driver);
+    }
+
+    public ChangePasswordPageObject openChangePasswordPage(WebDriver driver) {
+        waitForElementClickable(driver, pageUIs.NopCommerce.BasePageUI.CHANGE_PASSWORD_LINK);
+        clickToElement(driver, pageUIs.NopCommerce.BasePageUI.CHANGE_PASSWORD_LINK);
+        return pageObject.NopCommerce.PageGeneratorManager.getChangePasswordPage(driver);
+    }
+
+    public MyProductReviewsPageObject openMyProductReviewsPage(WebDriver driver) {
+        waitForElementClickable(driver, pageUIs.NopCommerce.BasePageUI.MY_PRODUCT_REVIEW_LINK);
+        clickToElement(driver, pageUIs.NopCommerce.BasePageUI.MY_PRODUCT_REVIEW_LINK);
+        return pageObject.NopCommerce.PageGeneratorManager.getMyProductReviewsPage(driver);
+    }
     /*Common methods*/
 
     public ManageHomePageObject openManagerHomePage(WebDriver driver) {
@@ -447,6 +476,7 @@ public class BasePage {
         waitForElementVisible(driver, locator, pageName);
         clickToElement(driver, locator, pageName);
     }
+
 
     private Alert alert;
     private Select select;

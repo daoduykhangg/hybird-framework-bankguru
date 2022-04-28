@@ -1,28 +1,21 @@
 package com.NopCommerce;
 
+import commons.BaseTest;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pageObject.NopCommerce.HomePageObject;
-import pageObject.NopCommerce.RegisterPageObject;
-import pageObject.NopCommerce.LoginPageObject;
+import pageObject.NopCommerce.*;
 
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
-public class Level_03_Page_Object_02_Login {
-
+public class Level_05_Page_Generator_Manager extends BaseTest {
+    @Parameters({"Browser", "Url"})
     @BeforeClass
-    public void beforeClass() {
-        System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
-        driver.get("https://demo.nopcommerce.com/");
-
+    public void beforeClass(String browserName, String url) {
+        driver = getBrowserDriver(browserName, url);
         firstName = "automation";
         lastName = "fc";
         email = getEmailRandom();
@@ -31,47 +24,41 @@ public class Level_03_Page_Object_02_Login {
         invalidPassword = "123";
 
         System.out.println("Pre-Condition - Step 01: Click to 'Register' Link");
-        homePage = new HomePageObject(driver);
-//        homePage.clickToRegisterLink();
+        homePage = PageGeneratorManager.getHomePage(driver);
+        registerPage = homePage.clickToRegisterLink(driver);
 
-        System.out.println("Pre-Condition - Step 02: Click to 'Register' Link");
-//        homePage.clickToRegisterLink();
-        registerPage = new RegisterPageObject(driver);
-
-        System.out.println("Pre-Condition - Step 03: Enter to 'Firstname' textbox with value '" + firstName + "'");
+        System.out.println("Pre-Condition - Step 02: Enter to 'Firstname' textbox with value '" + firstName + "'");
         registerPage.enterToFirstNameTextbox(firstName);
 
-        System.out.println("Pre-Condition - Step 04: Enter to 'Lastname' textbox with value '" + lastName + "'");
+        System.out.println("Pre-Condition - Step 03: Enter to 'Lastname' textbox with value '" + lastName + "'");
         registerPage.enterToLastNameTextbox(lastName);
 
-        System.out.println("Pre-Condition - Step 05: Enter to 'Email' textbox with value '" + email + "'");
+        System.out.println("Pre-Condition - Step 04: Enter to 'Email' textbox with value '" + email + "'");
         registerPage.enterToEmailTextbox(email);
 
-        System.out.println("Pre-Condition - Step 06: Enter to 'Password' textbox with value '" + password + "'");
+        System.out.println("Pre-Condition - Step 05: Enter to 'Password' textbox with value '" + password + "'");
         registerPage.enterToPasswordTextbox(password);
 
-        System.out.println("Pre-Condition - Step 07: Enter to 'Confirm Password' textbox with value '" + password + "'");
+        System.out.println("Pre-Condition - Step 06: Enter to 'Confirm Password' textbox with value '" + password + "'");
         registerPage.enterToConfirmPasswordTextbox(password);
 
-        System.out.println("Pre-Condition - Step 08: Click to 'Register' Button");
+        System.out.println("Pre-Condition - Step 07: Click to 'Register' Button");
         registerPage.clickToRegisterButton();
 
-        System.out.println("Pre-Condition - Step 09: Verify Register Sucess Message");
+        System.out.println("Pre-Condition - Step 08: Verify Register Sucess Message");
         Assert.assertEquals(registerPage.getSuccessMessage(), "Your registration completed");
 
-        System.out.println("Pre-Condition - Step 10: Click to Logout Link");
-//        registerPage.clickToLogoutLink();
-        homePage = new HomePageObject(driver);
+        System.out.println("Pre-Condition - Step 09: Click to Logout Link");
+        homePage = registerPage.clickToLogoutLink(driver);
     }
 
     @Test
     public void Login_01_Empty_Data() {
         System.out.println("Login 01 - Step 01: Click to 'Login' Link");
-//        homePage.clickToLoginLink();
+        loginPage = homePage.clickToLoginLink(driver);
 
         System.out.println("Login 01 - Step 02: Click to 'Login' Button");
-        loginPage = new LoginPageObject(driver);
-//        loginPage.clickToLoginButton();
+        loginPage.clickToLoginButton(driver);
 
         System.out.println("Login 01 - Step 02: Verrify Error message at 'Email' Textbox");
         Assert.assertEquals(loginPage.getErrorMessageAtEmailTextbox(), "Please enter your email");
@@ -80,14 +67,13 @@ public class Level_03_Page_Object_02_Login {
     @Test
     public void Login_02_Invalid_Email() {
         System.out.println("Login 02 - Step 01: Click to 'Login' Link");
-//        homePage.clickToLoginLink();
+        loginPage = homePage.clickToLoginLink(driver);
 
         System.out.println("Login 02 - Step 02: Enter to 'Email' Textbox with value '" + invalidEmail + "'");
-        loginPage = new LoginPageObject(driver);
         loginPage.enterToEmailTextbox(invalidEmail);
 
         System.out.println("Login 02 - Step 03: Click to 'Login' Button");
-//        loginPage.clickToLoginButton();
+        loginPage.clickToLoginButton(driver);
 
         System.out.println("Login 02 - Step 04: Verrify Error message at 'Email' Textbox");
         Assert.assertEquals(loginPage.getErrorMessageAtEmailTextbox(), "Wrong email");
@@ -96,17 +82,16 @@ public class Level_03_Page_Object_02_Login {
     @Test
     public void Login_03_Email_Not_Found() {
         System.out.println("Login 03 - Step 01: Click to 'Login' Link");
-//        homePage.clickToLoginLink();
+        loginPage = homePage.clickToLoginLink(driver);
 
         System.out.println("Login 03 - Step 02: Enter to 'Email' Textbox with value 'abc@poi.com'");
-        loginPage = new LoginPageObject(driver);
         loginPage.enterToEmailTextbox("abc@poi.com");
 
         System.out.println("Login 03 - Step 03: Enter to 'Password' Textbox with value '" + password + "'");
         loginPage.enterToPasswordTextbox(password);
 
         System.out.println("Login 03 - Step 04: Click to 'Login' Button");
-//        loginPage.clickToLoginButton();
+        loginPage.clickToLoginButton(driver);
 
         System.out.println("Login 03 - Step 05: Verrify Validation message error");
         Assert.assertEquals(loginPage.getValidationMessageError(), "Login was unsuccessful. Please correct the errors and try again.\nNo customer account found");
@@ -115,17 +100,16 @@ public class Level_03_Page_Object_02_Login {
     @Test
     public void Login_04_Existing_Email_With_Empty_Password() {
         System.out.println("Login 04 - Step 01: Click to 'Login' Link");
-//        homePage.clickToLoginLink();
+        loginPage = homePage.clickToLoginLink(driver);
 
         System.out.println("Login 04 - Step 02: Enter to 'Email' Textbox with value '" + email + "'");
-        loginPage = new LoginPageObject(driver);
         loginPage.enterToEmailTextbox(email);
 
         System.out.println("Login 04 - Step 03: Enter to 'Password' Textbox with value ''");
         loginPage.enterToPasswordTextbox("");
 
         System.out.println("Login 04 - Step 04: Click to 'Login' Button");
-//        loginPage.clickToLoginButton();
+        loginPage.clickToLoginButton(driver);
 
         System.out.println("Login 04 - Step 05: Verrify Validation message error");
         Assert.assertEquals(loginPage.getValidationMessageError(), "Login was unsuccessful. Please correct the errors and try again.\nThe credentials provided are incorrect");
@@ -134,17 +118,16 @@ public class Level_03_Page_Object_02_Login {
     @Test
     public void Login_05_Existing_Email_With_Incorrect_Password() {
         System.out.println("Login 05 - Step 01: Click to 'Login' Link");
-//        homePage.clickToLoginLink();
+        loginPage = homePage.clickToLoginLink(driver);
 
         System.out.println("Login 05 - Step 02: Enter to 'Email' Textbox with value '" + email + "'");
-        loginPage = new LoginPageObject(driver);
         loginPage.enterToEmailTextbox(email);
 
         System.out.println("Login 05 - Step 03: Enter to 'Password' Textbox with value '" + invalidPassword + "'");
         loginPage.enterToPasswordTextbox(invalidPassword);
 
         System.out.println("Login 05 - Step 04: Click to 'Login' Button");
-//        loginPage.clickToLoginButton();
+        loginPage.clickToLoginButton(driver);
 
         System.out.println("Login 05 - Step 05: Verrify Validation message error");
         Assert.assertEquals(loginPage.getValidationMessageError(), "Login was unsuccessful. Please correct the errors and try again.\nThe credentials provided are incorrect");
@@ -153,17 +136,16 @@ public class Level_03_Page_Object_02_Login {
     @Test
     public void Register_06_Existing_Email_With_correct_Password() {
         System.out.println("Login 06 - Step 01: Click to 'Login' Link");
-//        homePage.clickToLoginLink();
+        loginPage = homePage.clickToLoginLink(driver);
 
         System.out.println("Login 06 - Step 02: Enter to 'Email' Textbox with value '" + email + "'");
-        loginPage = new LoginPageObject(driver);
         loginPage.enterToEmailTextbox(email);
 
         System.out.println("Login 06 - Step 03: Enter to 'Password' Textbox with value '" + password + "'");
         loginPage.enterToPasswordTextbox(password);
 
         System.out.println("Login 06 - Step 04: Click to 'Login' Button");
-//        loginPage.clickToLoginButton();
+        homePage = loginPage.clickToLoginButton(driver);
 
         System.out.println("Login 06 - Step 05: Verify 'My account' link is displayed");
         Assert.assertTrue(loginPage.isMyAccountLinkDisplayed());
@@ -185,4 +167,5 @@ public class Level_03_Page_Object_02_Login {
     private HomePageObject homePage;
     private RegisterPageObject registerPage;
     private LoginPageObject loginPage;
+    private CustomerInforPageObject customerInforPage;
 }

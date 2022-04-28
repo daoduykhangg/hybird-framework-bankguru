@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite parallel="false" name="Bankguru" thread-count="3">
 
-    <parameter name="Url" value="https://demo.guru99.com/v4"/>
+    <parameter name="Url" value="https://demo.nopcommerce.com/"/>
     <test name="Chrome">
         <classes>
             <parameter name="Browser" value="Chrome"/>
-            <class name="com.NopCommerce.Level_03_Page_Object_01_Register"/>
-            <class name="com.NopCommerce.Level_03_Page_Object_02_Login"/>
+            <class name="com.NopCommerce.Level_05_Page_Generator_Manager"/>
+            <class name="com.NopCommerce.Level_06_Switch_Page"/>
         </classes>
     </test>
 
 <!--    <test name="Firefox">-->
 <!--        <classes>-->
 <!--            <parameter name="Browser" value="Firefox"/>-->
-<!--            <class name="com.bankguru.login.Level_4_Register_And_Login_Multiple_Browsers"/>-->
+<!--            <class name="com.NopCommerce.Level_04_Multiple_Browser"/>-->
 <!--        </classes>-->
 <!--    </test>-->
 
 <!--    <test name="Egde">-->
 <!--        <classes>-->
 <!--            <parameter name="Browser" value="Edge_Chromium"/>-->
-<!--            <class name="com.bankguru.login.Level_4_Register_And_Login_Multiple_Browsers"/>-->
+<!--            <class name="com.NopCommerce.Level_04_Multiple_Browser"/>-->
 <!--        </classes>-->
 <!--    </test>-->
 
